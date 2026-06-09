@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSJC Networks — Suministros e Instalaciones de Equipos de Cómputo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0f1e;
+    --bg2: #0f1629;
+    --bg3: #141d35;
+    --accent: #00d4ff;
+    --accent2: #0099cc;
+    --accent3: #7b5cf5;
+    --text: #e8edf8;
+    --text2: #8a9bc4;
+    --border: rgba(0,212,255,0.15);
+    --card: rgba(255,255,255,0.03);
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 6%;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #0a0f1e !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: #33ddff !important; transform: translateY(-1px); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 6% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(123,92,245,0.1) 0%, transparent 70%);
+    bottom: 0; left: 10%;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 700px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.25);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0f1e;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    font-family: var(--font-head);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(0,212,255,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,212,255,0.5); }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 0.82rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 6rem 6%; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--text2);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  .section-header { margin-bottom: 3.5rem; }
+
+  /* ===== SERVICES ===== */
+  #servicios { background: var(--bg2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover { border-color: rgba(0,212,255,0.35); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .service-card p {
+    color: var(--text2);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* ===== PRODUCTS ===== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .product-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .product-card:hover { border-color: rgba(123,92,245,0.5); transform: translateY(-3px); }
+
+  .product-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .product-card h3 {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .product-card p {
+    color: var(--text2);
+    font-size: 0.82rem;
+  }
+
+  /* ===== PROCESS ===== */
+  #proceso { background: var(--bg2); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    position: relative;
+  }
+
+  .process-step {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .process-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -12px;
+    top: 2.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    opacity: 0.5;
+  }
+
+  .step-number {
+    width: 50px; height: 50px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin: 0 auto 1rem;
+  }
+
+  .process-step h3 {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .process-step p {
+    color: var(--text2);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* ===== WHY ===== */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .process-step:not(:last-child)::after { display: none; }
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 4% 4rem; }
+    section { padding: 4rem 4%; }
+    .hero-stats { gap: 1.5rem; }
+  }
+
+  .why-features { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .why-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s;
+  }
+  .why-feature:hover { border-color: rgba(0,212,255,0.3); }
+
+  .feature-icon {
+    width: 36px; height: 36px;
+    background: rgba(0,212,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .why-feature h4 {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .why-feature p {
+    color: var(--text2);
+    font-size: 0.85rem;
+  }
+
+  .visual-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .big-number {
+    font-family: var(--font-head);
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .big-label {
+    color: var(--text2);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .visual-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.5rem 0;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  #testimonios { background: var(--bg2); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 1rem; }
+
+  .testimonial-card blockquote {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #0a0f1e;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .author-role {
+    color: var(--text2);
+    font-size: 0.8rem;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .why-grid { grid-template-columns: 1fr; }
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 {
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-item p { color: var(--text2); font-size: 0.9rem; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group select option { background: var(--bg3); }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    background: var(--accent);
+    color: #0a0f1e;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 20px rgba(0,212,255,0.25);
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0,212,255,0.45); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 3rem 6% 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+
+  .footer-brand .nav-logo { display: block; margin-bottom: 1rem; }
+  .footer-brand p { color: var(--text2); font-size: 0.9rem; line-height: 1.7; max-width: 260px; }
+
+  .footer-col h4 {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul li a { color: var(--text2); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p { color: var(--text2); font-size: 0.82rem; }
+
+  .footer-social {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">HSJC<span> Networks</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#proceso">¿Cómo trabajamos?</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto" class="nav-cta">Cotizar ahora</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ Tecnología para empresas</div>
+    <h1>Suministros e <em>Instalaciones</em> de Equipos de Cómputo</h1>
+    <p>Proveemos, instalamos y mantenemos toda la infraestructura tecnológica que tu empresa necesita para operar con eficiencia y seguridad.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primary">Solicitar cotización</a>
+      <a href="#servicios" class="btn-outline">Ver servicios →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">+500<span>.</span></div>
+        <div class="stat-label">Clientes satisfechos</div>
+      </div>
+      <div>
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div>
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Soporte técnico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-header reveal">
+    <span class="section-tag">Lo que hacemos</span>
+    <h2 class="section-title">Nuestros servicios</h2>
+    <p class="section-sub">Soluciones tecnológicas integrales pensadas para empresas de todos los tamaños.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🖥️</div>
+      <h3>Suministro de equipos</h3>
+      <p>Computadores de escritorio, laptops, servidores y periféricos de las marcas líderes a los mejores precios del mercado.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔧</div>
+      <h3>Instalación y configuración</h3>
+      <p>Instalamos y configuramos todos los equipos adquiridos, listos para usar desde el primer día sin complicaciones.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🌐</div>
+      <h3>Redes e infraestructura</h3>
+      <p>Diseño e instalación de redes LAN, WiFi corporativo, cableado estructurado y centros de datos.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🛡️</div>
+      <h3>Seguridad informática</h3>
+      <p>Implementación de firewalls, antivirus empresariales, VPN y políticas de ciberseguridad para proteger tu negocio.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">☁️</div>
+      <h3>Migración a la nube</h3>
+      <p>Migramos tus sistemas a plataformas cloud como AWS, Azure o Google Cloud con mínima interrupción operativa.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔩</div>
+      <h3>Mantenimiento preventivo</h3>
+      <p>Planes de mantenimiento periódico para maximizar la vida útil de tus equipos y prevenir fallas costosas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="section-header reveal">
+    <span class="section-tag">Catálogo</span>
+    <h2 class="section-title">Equipos que suministramos</h2>
+    <p class="section-sub">Trabajamos con las marcas más reconocidas para garantizar calidad y respaldo.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <span class="product-icon">💻</span>
+      <h3>Laptops y notebooks</h3>
+      <p>HP, Dell, Lenovo, Apple</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">🖥️</span>
+      <h3>Equipos de escritorio</h3>
+      <p>iMac, HP EliteDesk, Dell OptiPlex</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">🖨️</span>
+      <h3>Impresoras y escáneres</h3>
+      <p>HP, Epson, Canon, Brother</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">🗄️</span>
+      <h3>Servidores</h3>
+      <p>Dell PowerEdge, HP ProLiant</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">📡</span>
+      <h3>Redes y switches</h3>
+      <p>Cisco, Ubiquiti, TP-Link</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">🖱️</span>
+      <h3>Periféricos</h3>
+      <p>Monitores, teclados, mouse, UPS</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">📱</span>
+      <h3>Dispositivos móviles</h3>
+      <p>Tablets y smartphones corporativos</p>
+    </div>
+    <div class="product-card reveal">
+      <span class="product-icon">💾</span>
+      <h3>Almacenamiento</h3>
+      <p>SSD, NAS, discos duros externos</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="section-header reveal">
+    <span class="section-tag">¿Cómo trabajamos?</span>
+    <h2 class="section-title">Proceso sencillo y transparente</h2>
+    <p class="section-sub">De la consulta a la instalación, acompañamos cada paso del camino.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <h3>Consulta inicial</h3>
+      <p>Analizamos las necesidades tecnológicas de tu empresa sin costo.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <h3>Propuesta a medida</h3>
+      <p>Presentamos una cotización detallada con las mejores opciones para tu presupuesto.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <h3>Adquisición</h3>
+      <p>Gestionamos la compra y entrega de todos los equipos con garantía de fábrica.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <h3>Instalación</h3>
+      <p>Nuestros técnicos certificados realizan la instalación y configuración completa.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">05</div>
+      <h3>Soporte continuo</h3>
+      <p>Quedamos disponibles para cualquier duda o incidente técnico posterior.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS / POR QUÉ -->
+<section id="nosotros">
+  <div class="why-grid">
+    <div>
+      <span class="section-tag">¿Por qué elegirnos?</span>
+      <h2 class="section-title">Tecnología con respaldo humano</h2>
+      <p style="color: var(--text2); margin-bottom: 2rem; font-size: 1rem; font-weight: 300;">Somos un equipo de especialistas comprometidos con hacer la tecnología accesible y confiable para cada empresa.</p>
+      <div class="why-features">
+        <div class="why-feature reveal">
+          <div class="feature-icon">✅</div>
+          <div>
+            <h4>Técnicos certificados</h4>
+            <p>Nuestro equipo cuenta con certificaciones de las principales marcas del sector tecnológico.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon">⚡</div>
+          <div>
+            <h4>Respuesta en 4 horas</h4>
+            <p>Ante cualquier falla crítica, nuestro tiempo de respuesta garantizado es de 4 horas hábiles.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon">💰</div>
+          <div>
+            <h4>Precios competitivos</h4>
+            <p>Acceso a distribuidores autorizados nos permite ofrecer precios imbatibles con garantía oficial.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon">📋</div>
+          <div>
+            <h4>Contratos flexibles</h4>
+            <p>Planes de mantenimiento mensuales o anuales adaptados a tus necesidades y presupuesto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="visual-card reveal">
+      <span class="big-number">+500</span>
+      <span class="big-label">Empresas atendidas</span>
+      <div class="visual-divider"></div>
+      <span class="big-number">98%</span>
+      <span class="big-label">Tasa de satisfacción</span>
+      <div class="visual-divider"></div>
+      <span class="big-number">10+</span>
+      <span class="big-label">Años en el mercado</span>
+      <div class="visual-divider"></div>
+      <span class="big-number">24/7</span>
+      <span class="big-label">Soporte disponible</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="section-header reveal">
+    <span class="section-tag">Clientes</span>
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Renovamos completamente la infraestructura de nuestras 3 oficinas. El servicio fue impecable, entregaron todo a tiempo y el soporte post-instalación ha sido excelente."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">MC</div>
+        <div>
+          <div class="author-name">María Castro</div>
+          <div class="author-role">Gerente de TI — Grupo Construir S.A.</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Nos ayudaron a migrar a la nube sin interrumpir nuestras operaciones. Increíble capacidad técnica y muy buena comunicación durante todo el proceso."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">JR</div>
+        <div>
+          <div class="author-name">Juan Rodríguez</div>
+          <div class="author-role">Director de Operaciones — Logística Rápida</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"El contrato de mantenimiento preventivo nos ha ahorrado muchísimo dinero. Antes teníamos fallas constantes, ahora llevamos más de un año sin problemas graves."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">AP</div>
+        <div>
+          <div class="author-name">Andrea Pérez</div>
+          <div class="author-role">Administradora — Clínica Santa Rosa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-header reveal">
+    <span class="section-tag">Contacto</span>
+    <h2 class="section-title">Hablemos de tu proyecto</h2>
+    <p class="section-sub">Cuéntanos qué necesitas y te enviamos una cotización sin compromiso en menos de 24 horas.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item reveal">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Teléfono / WhatsApp</h4>
+          <p>+57 300 123 4567</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Correo electrónico</h4>
+          <p>ventas@techsupply.co</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Oficina principal</h4>
+          <p>Calle 80 # 15-32, Bogotá D.C., Colombia</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Horario de atención</h4>
+          <p>Lunes a viernes: 8:00 am – 6:00 pm<br>Sábados: 9:00 am – 1:00 pm</p>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" placeholder="Ej: Carlos Martínez" required>
+      </div>
+      <div class="form-group">
+        <label>Empresa</label>
+        <input type="text" placeholder="Nombre de tu empresa">
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="tu@empresa.com" required>
+      </div>
+      <div class="form-group">
+        <label>Teléfono / WhatsApp</label>
+        <input type="tel" placeholder="+57 300 000 0000">
+      </div>
+      <div class="form-group">
+        <label>Servicio de interés</label>
+        <select>
+          <option value="">Selecciona una opción</option>
+          <option>Compra de equipos</option>
+          <option>Instalación y configuración</option>
+          <option>Redes e infraestructura</option>
+          <option>Seguridad informática</option>
+          <option>Migración a la nube</option>
+          <option>Mantenimiento preventivo</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea placeholder="Cuéntanos brevemente tu necesidad o el número de equipos que requieres..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Enviar solicitud →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">HSJC<span> Networks</span></a>
+      <p>Tu aliado tecnológico de confianza. Proveemos, instalamos y mantenemos la infraestructura de cómputo que tu empresa necesita.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Suministro de equipos</a></li>
+        <li><a href="#servicios">Instalación</a></li>
+        <li><a href="#servicios">Redes corporativas</a></li>
+        <li><a href="#servicios">Seguridad TI</a></li>
+        <li><a href="#servicios">Nube empresarial</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#nosotros">Quiénes somos</a></li>
+        <li><a href="#proceso">Cómo trabajamos</a></li>
+        <li><a href="#testimonios">Clientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+573001234567">+57 300 123 4567</a></li>
+        <li><a href="mailto:ventas@techsupply.co">ventas@techsupply.co</a></li>
+        <li><a href="#">Bogotá, Colombia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 TechSupply. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="#" class="social-btn" title="Facebook">f</a>
+      <a href="#" class="social-btn" title="LinkedIn">in</a>
+      <a href="#" class="social-btn" title="WhatsApp">w</a>
+      <a href="#" class="social-btn" title="Instagram">ig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Solicitud enviada';
+    btn.style.background = '#00cc88';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Enviar solicitud →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3500);
+  }
+</script>
+</body>
+</html>
