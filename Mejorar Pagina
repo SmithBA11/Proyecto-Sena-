@@ -1075,19 +1075,14 @@
         </div>
       </div>
     </div>
-<<form class="contact-form reveal"
+<form class="contact-form reveal"
       action="https://formsubmit.co/hsjcnet@gmail.com"
       method="POST">
 
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="Nueva solicitud desde HSJC Networks">
     <input type="hidden" name="_template" value="table">
-
-    <input type="hidden" name="_next" value="https://TU-PAGINA.com">
-
-       <label>Nombre completo</label>
-        <input type="text" name="nombre" placeholder="Ej: Carlos Martínez" required>
-      </div>
+    <input type="hidden" name="_next" value="https://smithba11.github.io/Proyecto-Sena-/">
       <div class="form-group">
         <label>Empresa</label>
         <input type="text" name="empresa" placeholder="Nombre de tu empresa">
