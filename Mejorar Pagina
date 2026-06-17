@@ -1055,7 +1055,8 @@
   </div>
   <div>
     <h4>Correo electrónico</h4>
-    <a href="mailto:ventas@techsupply.co" style="color: #00d4ff; text-decoration: none;">ventas@techsupply.co</a>
+    <a href="mailto:hsjcnet@gmail.com
+" style="color: #00d4ff; text-decoration: none;">ventas@techsupply.co</a>
   </div>
 </div>
      <div class="contact-item reveal">
@@ -1074,9 +1075,17 @@
         </div>
       </div>
     </div>
-    <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
-      <div class="form-group">
-        <label>Nombre completo</label>
+<<form class="contact-form reveal"
+      action="https://formsubmit.co/hsjcnet@gmail.com"
+      method="POST">
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nueva solicitud desde HSJC Networks">
+    <input type="hidden" name="_template" value="table">
+
+    <input type="hidden" name="_next" value="https://TU-PAGINA.com">
+
+       <label>Nombre completo</label>
         <input type="text" name="nombre" placeholder="Ej: Carlos Martínez" required>
       </div>
       <div class="form-group">
@@ -1143,7 +1152,8 @@
       <h4>Contacto</h4>
       <ul>
         <li><a href="tel:+573002812159">+57 300 281 2159</a></li>
-        <li><a href="mailto:ventas@techsupply.co">ventas@techsupply.co</a></li>
+        <li><a href="mailto:hsjcnet@gmail.com">hsjcnet@gmail.com
+</a></li>
         <li><a href="#">Bogotá, Colombia</a></li>
       </ul>
     </div>
@@ -1169,39 +1179,6 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const nombre = data.get('nombre') || '';
-    const empresa = data.get('empresa') || '';
-    const correo = data.get('correo') || '';
-    const telefono = data.get('telefono') || '';
-    const servicio = data.get('servicio') || '';
-    const mensaje = data.get('mensaje') || '';
-
-    let texto = `Hola, soy ${nombre}`;
-    if (empresa) texto += ` de ${empresa}`;
-    texto += `.\nCorreo: ${correo}`;
-    if (telefono) texto += `\nTeléfono: ${telefono}`;
-    if (servicio) texto += `\nServicio de interés: ${servicio}`;
-    if (mensaje) texto += `\nMensaje: ${mensaje}`;
-
-    const url = `https://wa.me/573002812159?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
-
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Solicitud enviada';
-    btn.style.background = '#00cc88';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Enviar solicitud →';
-      btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 3500);
-  }
   
 </script>
 <a href="https://wa.me/573002812159" 
